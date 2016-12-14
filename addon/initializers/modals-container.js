@@ -20,7 +20,9 @@ function initialize() {
   }
   let application = arguments[1] || arguments[0];
   let modalContainerElId = 'ember-bootstrap-modal-container';
-  appendContainerElement(application.rootElement, modalContainerElId);
+  if(application && application.rootElement) {
+    appendContainerElement(application.rootElement, modalContainerElId);
+  }
 }
 
 export default {
