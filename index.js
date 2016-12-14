@@ -60,7 +60,7 @@ module.exports = {
       });
       styleTrees.push(lessTree);
     }
-    
+
     if (tree) {
       styleTrees.push(tree);
     }

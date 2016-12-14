@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import ModalCloser from 'ember-bootstrap/mixins/modal-closer';
+import layout from '../templates/components/bs-modal';
 
 /**
 
@@ -11,6 +12,7 @@ import ModalCloser from 'ember-bootstrap/mixins/modal-closer';
  @public
  */
 export default Ember.Component.extend(ModalCloser, {
+  layout,
   classNames: ['modal-header'],
 
   /**

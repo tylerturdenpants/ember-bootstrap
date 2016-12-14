@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import ModalCloser from 'ember-bootstrap/mixins/modal-closer';
+import layout from '../templates/components/bs-modal-footer';
 
 const { computed } = Ember;
 
@@ -13,6 +14,7 @@ const { computed } = Ember;
  @public
  */
 export default Ember.Component.extend(ModalCloser, {
+  layout,
   tagName: 'form',
   classNames: ['modal-footer'],
 

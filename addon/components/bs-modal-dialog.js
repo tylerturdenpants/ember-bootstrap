@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import layout from '../templates/components/bs-modal-dialog';
 
 const { computed } = Ember;
 
@@ -11,6 +12,7 @@ const { computed } = Ember;
   @private
  */
 export default Ember.Component.extend({
+  layout,
   classNames: ['modal'],
   classNameBindings: ['fade', 'in'],
   attributeBindings: ['tabindex'],
