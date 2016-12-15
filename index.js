@@ -17,12 +17,8 @@ module.exports = {
   name: 'ember-bootstrap',
 
   included: function included(app) {
-    // workaround for https://github.com/ember-cli/ember-cli/issues/3718
-    if (typeof app.import !== 'function' && app.app) {
-      app = app.app;
-    }
-    this.app = app;
-
+	
+    var app = this._findHost();
     var options = extend(defaultOptions, app.options['ember-bootstrap']);
     var bootstrapPath = path.join(app.bowerDirectory, 'bootstrap/dist');
 
@@ -66,5 +62,19 @@ module.exports = {
     }
     */
     return mergeTrees(styleTrees, { overwrite: true });
-  }
+  },
+
+  _findHost: function() {
+    var current = this;
+    var app;
+
+    // Keep iterating upward until we don't have a grandparent.
+    // Has to do this grandparent check because at some point we hit the project.
+    do {
+	  app = current.app || app;
+    } while (current.parent.parent && (current = current.parent));
+
+    return app;
+  },
+
 };
