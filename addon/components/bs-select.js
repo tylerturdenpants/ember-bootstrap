@@ -30,7 +30,7 @@ export default Ember.Component.extend({
   prompt: null,
   optionValuePath: 'id',
   optionLabelPath: 'title',
-  action: Ember.K, // action to fire on change
+  action() {}, // action to fire on change
 
   value: null,
 
